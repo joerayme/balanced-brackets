@@ -9,3 +9,9 @@ func TestIsBalancedReturnsTrueWithEmptyInput(t *testing.T) {
 		t.Error("Expected IsBalanced to return true for empty input")
 	}
 }
+
+func TestIsBalancedReturnsFalseWithSingleBracket(t *testing.T) {
+	if IsBalanced("{") != false {
+		t.Error("Expected IsBalanced to return false when single bracket is passed")
+	}
+}

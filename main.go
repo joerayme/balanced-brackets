@@ -7,5 +7,9 @@ func main() {
 }
 
 func IsBalanced(input string) bool {
+	if input != "" {
+		return false
+	}
+
 	return true
 }
