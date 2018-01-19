@@ -2,7 +2,10 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"strings"
+
+	"bufio"
 )
 
 type stack []rune
@@ -16,7 +19,18 @@ func (s *stack) Pop() rune {
 }
 
 func main() {
-	fmt.Println("vim-go")
+	s := bufio.NewScanner(os.Stdin)
+
+	// We don't care about the first line of input, it's just how many lines to expect
+	s.Scan()
+
+	for s.Scan() {
+		if IsBalanced(s.Text()) {
+			fmt.Println("YES")
+		} else {
+			fmt.Println("NO")
+		}
+	}
 }
 
 func IsBalanced(input string) bool {
