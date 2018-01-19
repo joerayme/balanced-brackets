@@ -10,11 +10,12 @@ func IsBalanced(input string) bool {
 	var expected rune
 
 	for _, char := range input {
-		if expected != 0 && char != expected {
-			return false
-		}
 		if char == '{' {
 			expected = '}'
+		} else if expected != 0 && char != expected {
+			return false
+		} else if char == expected {
+			expected = 0
 		}
 	}
 
