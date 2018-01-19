@@ -21,3 +21,9 @@ func TestIsBalancedReturnsTrueWhenNoBrackets(t *testing.T) {
 		t.Error("Expected IsBalanced to return true when no brackets are passed")
 	}
 }
+
+func TestIsBalancedReturnsFalseWhenMultipleUnbalancedBrackets(t *testing.T) {
+	if IsBalanced("{{") != false {
+		t.Error("Expected IsBalanced to return false when input contains multiple unbalanced brackets")
+	}
+}

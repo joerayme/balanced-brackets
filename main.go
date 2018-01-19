@@ -7,9 +7,19 @@ func main() {
 }
 
 func IsBalanced(input string) bool {
-	if input == "{" {
-		return false
+	var expected rune
+
+	for _, char := range input {
+		if expected != 0 && char != expected {
+			return false
+		}
+		if char == '{' {
+			expected = '}'
+		}
 	}
 
+	if expected != 0 {
+		return false
+	}
 	return true
 }
