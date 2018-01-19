@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
 
 	"bufio"
 )
@@ -34,14 +33,17 @@ func main() {
 }
 
 func IsBalanced(input string) bool {
-	opening := "{[("
-	closing := "}])"
+	brackets := map[rune]rune{
+		'{': '}',
+		'[': ']',
+		'(': ')',
+	}
 	var expected stack
 
 	for _, char := range input {
-		if i := strings.IndexRune(opening, char); i != -1 {
-			expected.Put([]rune(closing)[i])
-		} else if strings.ContainsRune(closing, char) && !expected.Empty() && char != expected.Pop() {
+		if match, ok := brackets[char]; ok {
+			expected.Put(match)
+		} else if !expected.Empty() && char != expected.Pop() {
 			return false
 		}
 	}
