@@ -15,3 +15,9 @@ func TestIsBalancedReturnsFalseWithSingleBracket(t *testing.T) {
 		t.Error("Expected IsBalanced to return false when single bracket is passed")
 	}
 }
+
+func TestIsBalancedReturnsTrueWhenNoBrackets(t *testing.T) {
+	if IsBalanced("a") != true {
+		t.Error("Expected IsBalanced to return true when no brackets are passed")
+	}
+}
