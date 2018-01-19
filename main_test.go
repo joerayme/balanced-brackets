@@ -36,6 +36,15 @@ func TestIsBalancedReturnsTrueWhenMultipleBalancedBrackets(t *testing.T) {
 
 func TestIsBalancedReturnsFalseWhenMultipleUnbalancedBracketsOfDifferentTypes(t *testing.T) {
 	if IsBalanced("[{}}") != false {
-		t.Error("Expected IsBalanced to return false when input contains multiple balanced brackets of different types")
+		t.Error("Expected IsBalanced to return false when input contains multiple unbalanced brackets of different types")
+	}
+	if IsBalanced("({}}") != false {
+		t.Error("Expected IsBalanced to return false when input contains multiple unbalanced brackets of different types")
+	}
+}
+
+func TestIsBalancedReturnsTrueWhenMultipleBalancedBracketsOfDifferentTypes(t *testing.T) {
+	if IsBalanced("{{[[(())]]}}") != true {
+		t.Error("Expected IsBalanced to return true when input contains multiple balanced brackets of different types")
 	}
 }

@@ -20,8 +20,8 @@ func main() {
 }
 
 func IsBalanced(input string) bool {
-	opening := "{["
-	closing := "}]"
+	opening := "{[("
+	closing := "}])"
 	var expected stack
 
 	for _, char := range input {
